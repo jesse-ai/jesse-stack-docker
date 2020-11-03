@@ -8,6 +8,7 @@ node_modules
 **/__pycache__
 
 # DB
+data/db/**
 
 # Jesse
 /data/jesse/**/logs
