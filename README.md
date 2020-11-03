@@ -5,6 +5,7 @@ Quick start for jesse, all you need is install [docker  compose](https://docs.do
 
 ## 1. Open a new terminal start the db:
 ```sh 
+mkdir data/db
 docker-compose up db
 ```
 
