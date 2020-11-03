@@ -1,0 +1,17 @@
+# Env
+node_modules
+.DS_Store
+.idea
+.vscode
+.env
+.env.local
+**/__pycache__
+
+# DB
+data/db/**
+
+# Jesse
+/data/jesse/**/logs
+/data/jesse/**/temp
+/data/jesse/**/storage/json
+/data/jesse/**/storage/charts

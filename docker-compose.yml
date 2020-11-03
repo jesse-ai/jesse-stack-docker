@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+
+  jesse:
+    image: salehmir/jesse:python38
+    volumes:
+      - jesse-data:/home
+    depends_on:
+      - db
+    ports:
+      - 8888:8888
+
+  db:
+    build:
+      context: ./postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+  jesse-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/jesse
+
+  db-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/db
