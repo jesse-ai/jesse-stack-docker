@@ -1,6 +1,6 @@
 # Jesse quick start
 
-Quick start for jesse, all you need is [docker  compose](https://docs.docker.com/compose)
+Quick start for jesse, all you need is install [docker  compose](https://docs.docker.com/compose), clone this repo.
 
 
 ## 1. Open a new terminal start the db:
