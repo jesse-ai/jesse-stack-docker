@@ -8,8 +8,22 @@ services:
       - ./data/jesse:/home
     depends_on:
       - db
+      - jesse-trades-info
     ports:
       - 8888:8888
+
+  jesse-trades-info:
+    image: jessetradesinfo/jesse-trades-info:latest
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: jesse_db
+      DB_USER: jesse_user
+      DB_PASSWORD: password
+      DB_PORT: 5432
+    ports:
+      - 3000:3000
 
   db:
     build:

@@ -27,3 +27,5 @@ jesse import-candles Binance BTCUSDT 2020-06-01
 ```sh
 jesse backtest 2019-11-01 2020-11-01 --chart
 ```
+
+Web interface for backtesting result chart: `http://localhost:3000`
