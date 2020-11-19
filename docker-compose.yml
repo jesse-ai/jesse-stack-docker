@@ -29,6 +29,8 @@ services:
     build:
       context: ./postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - psql:/var/lib/postgresql/data
     ports:
       - 5432:5432
+volumes:
+  psql:
