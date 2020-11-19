@@ -5,7 +5,7 @@ services:
   jesse:
     image: salehmir/jesse:python38
     volumes:
-      - ./data/jesse:/home
+      - jesse-data:/home
     depends_on:
       - db
       - jesse-trades-info
@@ -29,8 +29,21 @@ services:
     build:
       context: ./postgres
     volumes:
-      - psql:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+
 volumes:
-  psql:
+  jesse-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/jesse
+
+  db-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/db
