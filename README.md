@@ -13,19 +13,12 @@ docker-compose run jesse bash
 pip install -U jesse
 ```
 
-## 3. Into Jesse container, navigate to the project root directory:
+## 3. Into Jesse container, generate the project scaffold and navigate into the project root directory:
 ```sh
-cd /home/myBot
+cd /home
+jesse make-project myBot
+cd myBot
 ```
 
-## 4. Into Jesse container, Import the candle history:
-```sh
-jesse import-candles Binance BTCUSDT 2020-06-01
-```
-
-## You're good to go! into Jesse container, run a backtest:
-```sh
-jesse backtest 2019-11-01 2020-11-01 --chart
-```
-
+Setup is done. Find your strategy config and file into jesseData directory, follow the instruction from here [https://docs.jesse.trade/docs/strategies/generating-new-strategy.html](https://docs.jesse.trade/docs/strategies/generating-new-strategy.html)
 Web interface for backtesting result chart: `http://localhost:3000`

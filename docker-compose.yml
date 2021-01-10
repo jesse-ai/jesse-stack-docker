@@ -1,19 +1,21 @@
-version: '3.7'
+version: '3.8'
 
 services:
 
   jesse:
     image: salehmir/jesse:python38
     volumes:
-      - ./data/jesse:/home
+      - ./jesseData:/home
     depends_on:
       - db
       - jesse-trades-info
+    environment:
+      POSTGRES_HOST: "db"
     ports:
       - 8888:8888
 
   jesse-trades-info:
-    image: jessetradesinfo/jesse-trades-info:latest
+    image: jessetradesinfo/jesse-trades-info:v0.1.0
     depends_on:
       - db
     environment:
@@ -29,6 +31,6 @@ services:
     build:
       context: ./postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - ./dbData:/var/lib/postgresql/data
     ports:
       - 5432:5432

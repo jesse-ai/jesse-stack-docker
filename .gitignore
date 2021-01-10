@@ -11,7 +11,5 @@ node_modules
 data/db/**
 
 # Jesse
-/data/jesse/**/logs
-/data/jesse/**/temp
-/data/jesse/**/storage/json
-/data/jesse/**/storage/charts
+/dbData
+/jesseData
