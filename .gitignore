@@ -1,5 +1,4 @@
 # Env
-node_modules
 .DS_Store
 .idea
 .vscode
@@ -7,11 +6,7 @@ node_modules
 .env.local
 **/__pycache__
 
-# DB
-data/db/**
-
-# Jesse
-/data/jesse/**/logs
-/data/jesse/**/temp
-/data/jesse/**/storage/json
-/data/jesse/**/storage/charts
+# Db internal files
+/dbData
+# Jesse strategy & config files
+/jesseData
