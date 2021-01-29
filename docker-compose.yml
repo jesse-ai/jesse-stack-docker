@@ -3,14 +3,14 @@ version: '3.8'
 services:
 
   jesse:
-    image: salehmir/jesse:python38
+    image: salehmir/jesse:0.18.2
     volumes:
       - ./jesseData:/home
     depends_on:
       - db
       - jesse-trades-info
     environment:
-      POSTGRES_HOST: "db"
+      ENV_DATABASES_POSTGRES_HOST: "db"
     ports:
       - 8888:8888
 
@@ -28,9 +28,12 @@ services:
       - 3000:3000
 
   db:
-    build:
-      context: ./postgres
-    volumes:
-      - ./dbData:/var/lib/postgresql/data
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_USER: jesse_user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: jesse_db
     ports:
       - 5432:5432
+    volumes:
+      - ./dbData:/var/lib/postgresql/data

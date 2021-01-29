@@ -8,12 +8,7 @@ Quick start for jesse, all you need is install [docker  compose](https://docs.do
 docker-compose run jesse bash
 ```
 
-## 2. Into Jesse container, upgrade Jesse pkg to the latest version:
-```sh
-pip install -U jesse
-```
-
-## 3. Into Jesse container, generate the project scaffold and navigate into the project root directory:
+## 2. Into Jesse container, generate the project scaffold and navigate into the project root directory:
 ```sh
 cd /home
 jesse make-project myBot
