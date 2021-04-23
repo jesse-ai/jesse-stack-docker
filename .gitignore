@@ -9,4 +9,7 @@
 # Db internal files
 /dbData
 # Jesse strategy & config files
-/jesseData
+/jesseData/**/storage
+/jesseData/**/storage/json
+/jesseData/**/storage/charts
+
