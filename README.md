@@ -3,13 +3,21 @@
 Quick start for jesse, all you need is install [docker  compose](https://docs.docker.com/compose), clone this repo.
 
 
-## 1. Start Jesse container:
+## 1. Start the containers:
 ```sh
-docker-compose run jesse bash
+docker-compose up
+```
+
+List the containers to make sure the containers are running:
+
+```sh
+docker container ls
 ```
 
 ## 2. Into Jesse container, generate the project scaffold and navigate into the project root directory:
 ```sh
+docker container exec -it {name_of_the_container} /bin/bash
+
 cd /home
 jesse make-project myBot
 cd myBot
