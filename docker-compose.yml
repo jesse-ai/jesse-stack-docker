@@ -9,6 +9,7 @@ services:
       - jesse-trades-info
     environment:
       ENV_DATABASES_POSTGRES_HOST: "db"
+    tty: true
 
 # Inject api credentials from host env (only for live):
 #      ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY: ${ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY}
