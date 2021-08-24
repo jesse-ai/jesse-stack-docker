@@ -5,48 +5,34 @@ services:
   jesse:
     image: salehmir/jesse:latest
     depends_on:
-      - db
-      - jesse-trades-info
-    environment:
-      ENV_DATABASES_POSTGRES_HOST: "db"
-    tty: true
-
-# Inject api credentials from host env (only for live):
-#      ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY: ${ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY}
-#      ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET: ${ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET}
-
-# Inject api credentials from env file (only for live):
-#    env_file:
-#      .env
-
+      - postgres
+      - redis
+    env_file:
+      .env
     ports:
       - 8888:8888
+      - 8000:8000
     volumes:
       - ./jesseData:/home
-# Mount the live package as volume (only for live):
-#      - ./jesse_live-0.0.2-cp39-cp39-manylinux2010_x86_64.whl:/jesse_live-0.0.2-cp39-cp39-manylinux2010_x86_64.whl
+    tty: true
 
-  jesse-trades-info:
-    image: jessetradesinfo/jesse-trades-info:v0.2.1
-    depends_on:
-      - db
-    environment:
-      DB_HOST: db
-      DB_NAME: jesse_db
-      DB_USER: jesse_user
-      DB_PASSWORD: password
-      DB_PORT: 5432
+
+  redis:
+    image: redis:6.2.5-alpine
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    hostname: redis
     ports:
-      - 3000:3000
+      - ${REDIS_PORT}:6379
 
-  db:
+  postgres:
     image: postgres:12-alpine
+    hostname: postgres
     environment:
-      POSTGRES_USER: jesse_user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: jesse_db
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_NAME}
       POSTGRES_HOST_AUTH_METHOD: password
     ports:
-      - 5432:5432
+      - ${POSTGRES_PORT}:5432
     volumes:
       - ./dbData:/var/lib/postgresql/data

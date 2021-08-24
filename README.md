@@ -2,6 +2,7 @@
 
 Quick start for jesse, all you need is install [docker  compose](https://docs.docker.com/compose), clone this repo.
 
+Rename .env.example to .env and edit the configuration to your needs. The environment variables will be automatically loaded to the jesse container.
 
 ## 1. Start the containers:
 ```sh
@@ -21,10 +22,9 @@ docker container exec -it {name_of_the_container} /bin/bash
 cd /home
 jesse make-project myBot
 cd myBot
+jesse run
 ```
 
-Setup is done. Find your strategy config and file into jesseData directory, follow the instruction from here [https://docs.jesse.trade/docs/strategies/generating-new-strategy.html](https://docs.jesse.trade/docs/strategies/generating-new-strategy.html)
-Web interface for backtesting result chart: `http://localhost:3000`
 
 ## 3. Install live module (optional)
 ```sh
