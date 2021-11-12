@@ -30,6 +30,7 @@ apt update
 apt install git
 pip uninstall jesse
 pip install git+https://github.com/jesse-ai/jesse.git@dashboard
+pip install -r https://raw.githubusercontent.com/jesse-ai/jesse/dashboard/requirements.txt
 ```
 
 ```sh
