@@ -41,6 +41,8 @@ jesse make-project myBot
 cd myBot
 ```
 
+Update the .env in the project. `POSTGRES_HOST=postgres` and `REDIS_HOST=redis`
+
 Setup is done. Find your strategy config and file into jesseData directory, follow the instruction from here [https://docs.jesse.trade/docs/strategies/generating-new-strategy.html](https://docs.jesse.trade/docs/strategies/generating-new-strategy.html)
 Web interface for backtesting result chart: `http://localhost:3000`
 
