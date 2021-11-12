@@ -1,9 +1,15 @@
 # Jesse quick start
 
 Quick start for jesse, all you need is install [docker  compose](https://docs.docker.com/compose), clone this repo.
-
+cd into the directioy.
 
 ## 1. Start the containers:
+
+cd into the cloned repo.
+
+Rename the `env.example` to `.env`.
+Adjust configs as necessary.
+
 ```sh
 docker-compose up
 ```
@@ -15,6 +21,17 @@ docker container ls
 ```
 
 ## 2. Into Jesse container, generate the project scaffold and navigate into the project root directory:
+
+Currently the jesse container comes with the non-dashboard version. 
+So we need to uninstall that and install from git.
+
+```sh
+apt update
+apt install git
+pip uninstall jesse
+pip install git+https://github.com/jesse-ai/jesse.git@dashboard
+```
+
 ```sh
 docker container exec -it {name_of_the_container} /bin/bash
 
