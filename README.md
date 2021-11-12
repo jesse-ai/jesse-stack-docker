@@ -1,10 +1,15 @@
 # Jesse quick start
 
 Quick start for jesse, all you need is install [docker  compose](https://docs.docker.com/compose), clone this repo.
-
-Rename .env.example to .env and edit the configuration to your needs. The environment variables will be automatically loaded to the jesse container.
+cd into the directioy.
 
 ## 1. Start the containers:
+
+cd into the cloned repo.
+
+Rename the `env.example` to `.env`.
+Adjust configs as necessary.
+
 ```sh
 docker-compose up
 ```
@@ -16,15 +21,27 @@ docker container ls
 ```
 
 ## 2. Into Jesse container, generate the project scaffold and navigate into the project root directory:
+
+Currently the jesse container comes with the non-dashboard version. 
+So we need to uninstall that and install from git.
+
+```sh
+apt update
+apt install git
+pip uninstall jesse
+pip install git+https://github.com/jesse-ai/jesse.git@dashboard
+```
+
 ```sh
 docker container exec -it {name_of_the_container} /bin/bash
 
 cd /home
 jesse make-project myBot
 cd myBot
-jesse run
 ```
 
+Setup is done. Find your strategy config and file into jesseData directory, follow the instruction from here [https://docs.jesse.trade/docs/strategies/generating-new-strategy.html](https://docs.jesse.trade/docs/strategies/generating-new-strategy.html)
+Web interface for backtesting result chart: `http://localhost:3000`
 
 ## 3. Install live module (optional)
 ```sh
