@@ -26,16 +26,24 @@ Currently the jesse container comes with the non-dashboard version.
 So we need to uninstall that and install from git.
 
 ```sh
+docker container exec -it {name_of_the_container} /bin/bash
+
 apt update
 apt install git
 pip uninstall jesse
-pip install git+https://github.com/jesse-ai/jesse.git@dashboard
+
+# pip install git+https://github.com/jesse-ai/jesse.git@dashboard || currently a change in the source code is needed to work with docker. Use editable install:
+
+git clone -b dashboard https://github.com/jesse-ai/jesse.git
+cd jesse
+pip install -e .
+
 pip install -r https://raw.githubusercontent.com/jesse-ai/jesse/dashboard/requirements.txt
 ```
 
-```sh
-docker container exec -it {name_of_the_container} /bin/bash
+In `jesse/__init__.py` line 183 change `uvicorn.run(fastapi_app, host="127.0.0.1", port=8000, log_level="info")` to `uvicorn.run(fastapi_app, host="0.0.0.0", port=8000, log_level="info")`.
 
+```sh
 cd /home
 jesse make-project myBot
 cd myBot
