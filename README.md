@@ -48,8 +48,7 @@ cd myBot
 
 Update the .env in the project. `POSTGRES_HOST=postgres` and `REDIS_HOST=redis` and adjust the credentials and ports if you changed them in the `docker-compose.yml`.
 
-Setup is done. Find your strategy config and file into jesseData directory, follow the instruction from here [https://docs.jesse.trade/docs/strategies/generating-new-strategy.html](https://docs.jesse.trade/docs/strategies/generating-new-strategy.html)
-Web interface for backtesting result chart: `http://localhost:3000`
+Setup is done. Find your strategy config and file in the jesseData directory.
 
 ## 3. Install live module (optional)
 ```sh
