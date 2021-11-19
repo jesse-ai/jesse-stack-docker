@@ -7,9 +7,6 @@ cd into the directioy.
 
 cd into the cloned repo.
 
-Rename the `env.example` to `.env`.
-Adjust configs as necessary.
-
 ```sh
 docker-compose up
 ```
@@ -49,7 +46,7 @@ jesse make-project myBot
 cd myBot
 ```
 
-Update the .env in the project. `POSTGRES_HOST=postgres` and `REDIS_HOST=redis`
+Update the .env in the project. `POSTGRES_HOST=postgres` and `REDIS_HOST=redis` and adjust the ports if you change them in the `docker-compose.yml`.
 
 Setup is done. Find your strategy config and file into jesseData directory, follow the instruction from here [https://docs.jesse.trade/docs/strategies/generating-new-strategy.html](https://docs.jesse.trade/docs/strategies/generating-new-strategy.html)
 Web interface for backtesting result chart: `http://localhost:3000`
